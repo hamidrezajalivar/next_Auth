@@ -1,17 +1,13 @@
-import { getServerSession } from "next-auth";
-
+import { UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 export default async function Home() {
-  const session = await getServerSession();
-
-
   return (
     <div className="text-black">
-      getServerSession Result
-      {session?.user?.name ? (
-        <div>{session?.user?.name}</div>
-      ) : (
-        <div>Not logged in</div>
-      )}
+      home pages
+      <UserButton afterSignOutUrl="/" />
+      <Link href="/about" className="text-blue-500">
+        about
+      </Link>
     </div>
   );
 }
