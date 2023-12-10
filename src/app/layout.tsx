@@ -14,7 +14,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        elements: {
+          formButtonPrimary: "primary",
+          footerActionLink: "primary-text hover:text-red-500",
+        },
+      }}
+    >
       <html lang="en">
         <body className={inter.className}>
           <main className="mx-auto max-w-5xl text-2xl flex gap-2 text-dark">
